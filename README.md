@@ -1,764 +1,764 @@
-# \# 🚀 IT Job Dashboard - Full Stack Microservice Architecture
+#### \# 🚀 IT Job Dashboard - Full Stack Microservice Architecture
 
-# 
+#### 
 
-# > \*\*Enterprise-grade job analytics platform with modern microservice architecture, featuring Next.js frontend, Node.js backend services, Prisma ORM, PostgreSQL, AWS cloud infrastructure, and automated CI/CD pipelines.\*\*
+#### > \*\*Enterprise-grade job analytics platform with modern microservice architecture, featuring Next.js frontend, Node.js backend services, Prisma ORM, PostgreSQL, AWS cloud infrastructure, and automated CI/CD pipelines.\*\*
 
-# 
+#### 
 
-# \## 🏗️ System Architecture Overview
+#### \## 🏗️ System Architecture Overview
 
-# 
+#### 
 
-# ```
+#### ```
 
-# ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+#### ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 
-# │   Frontend      │    │   API Gateway   │    │   Load Balancer │
+#### │   Frontend      │    │   API Gateway   │    │   Load Balancer │
 
-# │   Next.js 14    │◄──►│   Kong/Express  │◄──►│   AWS ALB       │
+#### │   Next.js 14    │◄──►│   Kong/Express  │◄──►│   AWS ALB       │
 
-# │   TypeScript     │    │   Rate Limiting │    │   SSL/TLS       │
+#### │   TypeScript     │    │   Rate Limiting │    │   SSL/TLS       │
 
-# └─────────────────┘    └─────────────────┘    └─────────────────┘
+#### └─────────────────┘    └─────────────────┘    └─────────────────┘
 
-# &nbsp;                               │
+#### &nbsp;                               │
 
-# &nbsp;                   ┌───────────┼───────────┐
+#### &nbsp;                   ┌───────────┼───────────┐
 
-# &nbsp;                   │           │           │
+#### &nbsp;                   │           │           │
 
-# &nbsp;        ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+#### &nbsp;        ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
 
-# &nbsp;        │ Auth Service│ │Crawl Service│ │Analytics    │
+#### &nbsp;        │ Auth Service│ │Crawl Service│ │Analytics    │
 
-# &nbsp;        │ JWT + OAuth │ │Puppeteer +  │ │Service      │
+#### &nbsp;        │ JWT + OAuth │ │Puppeteer +  │ │Service      │
 
-# &nbsp;        │ Prisma      │ │Cheerio      │ │ML/AI        │
+#### &nbsp;        │ Prisma      │ │Cheerio      │ │ML/AI        │
 
-# &nbsp;        └─────────────┘ └─────────────┘ └─────────────┘
+#### &nbsp;        └─────────────┘ └─────────────┘ └─────────────┘
 
-# &nbsp;                   │           │           │
+#### &nbsp;                   │           │           │
 
-# &nbsp;             ┌─────────────────────────────────┐
+#### &nbsp;             ┌─────────────────────────────────┐
 
-# &nbsp;             │        Message Queue            │
+#### &nbsp;             │        Message Queue            │
 
-# &nbsp;             │     Apache Kafka + Redis        │
+#### &nbsp;             │     Apache Kafka + Redis        │
 
-# &nbsp;             └─────────────────────────────────┘
+#### &nbsp;             └─────────────────────────────────┘
 
-# &nbsp;                             │
+#### &nbsp;                             │
 
-# &nbsp;             ┌─────────────────────────────────┐
+#### &nbsp;             ┌─────────────────────────────────┐
 
-# &nbsp;             │         Databases               │
+#### &nbsp;             │         Databases               │
 
-# &nbsp;             │ PostgreSQL + MongoDB + Redis    │
+#### &nbsp;             │ PostgreSQL + MongoDB + Redis    │
 
-# &nbsp;             └─────────────────────────────────┘
+#### &nbsp;             └─────────────────────────────────┘
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 🎯 Tech Stack \& Configuration
+#### \## 🎯 Tech Stack \& Configuration
 
-# 
+#### 
 
-# \### Frontend Stack
+#### \### Frontend Stack
 
-# ```yaml
+#### ```yaml
 
-# Framework: Next.js 14 with App Router
+#### Framework: Next.js 14 with App Router
 
-# Language: TypeScript 5.x
+#### Language: TypeScript 5.x
 
-# Styling: Tailwind CSS + Shadcn/ui components
+#### Styling: Tailwind CSS + Shadcn/ui components
 
-# State Management: Zustand + TanStack Query
+#### State Management: Zustand + TanStack Query
 
-# Authentication: NextAuth.js with JWT
+#### Authentication: NextAuth.js with JWT
 
-# Testing: Jest + Playwright E2E
+#### Testing: Jest + Playwright E2E
 
-# Build Tool: Turbopack (dev) + Webpack (prod)
+#### Build Tool: Turbopack (dev) + Webpack (prod)
 
-# Deployment: Vercel / AWS Amplify / Docker
+#### Deployment: Vercel / AWS Amplify / Docker
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Backend Microservices
+#### \### Backend Microservices
 
-# ```yaml
+#### ```yaml
 
-# Runtime: Node.js 18+ with TypeScript
+#### Runtime: Node.js 18+ with TypeScript
 
-# API Framework: Express.js with OpenAPI specs
+#### API Framework: Express.js with OpenAPI specs
 
-# ORM: Prisma with PostgreSQL
+#### ORM: Prisma with PostgreSQL
 
-# Authentication: Passport.js + JWT strategies
+#### Authentication: Passport.js + JWT strategies
 
-# Message Queue: Bull Queue with Redis
+#### Message Queue: Bull Queue with Redis
 
-# Event Streaming: Apache Kafka
+#### Event Streaming: Apache Kafka
 
-# Caching: Redis Cluster
+#### Caching: Redis Cluster
 
-# File Storage: AWS S3 with CloudFront CDN
+#### File Storage: AWS S3 with CloudFront CDN
 
-# Logging: Winston with structured JSON
+#### Logging: Winston with structured JSON
 
-# Monitoring: Prometheus + Grafana
+#### Monitoring: Prometheus + Grafana
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Database Architecture
+#### \### Database Architecture
 
-# ```yaml
+#### ```yaml
 
-# Primary Database:
+#### Primary Database:
 
-# &nbsp; - PostgreSQL 15+ (AWS RDS Multi-AZ)
+#### &nbsp; - PostgreSQL 15+ (AWS RDS Multi-AZ)
 
-# &nbsp; - Prisma ORM with migrations
+#### &nbsp; - Prisma ORM with migrations
 
-# &nbsp; - Connection pooling (PgBouncer)
+#### &nbsp; - Connection pooling (PgBouncer)
 
-# &nbsp; - Read replicas for analytics
+#### &nbsp; - Read replicas for analytics
 
-# 
+#### 
 
-# Secondary Storage:
+#### Secondary Storage:
 
-# &nbsp; - MongoDB (document storage for crawled data)
+#### &nbsp; - MongoDB (document storage for crawled data)
 
-# &nbsp; - Redis Cluster (caching + sessions + queues)
+#### &nbsp; - Redis Cluster (caching + sessions + queues)
 
-# &nbsp; - ClickHouse (time-series analytics)
+#### &nbsp; - ClickHouse (time-series analytics)
 
-# &nbsp; - S3 (file storage + data lake)
+#### &nbsp; - S3 (file storage + data lake)
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### AWS Infrastructure
+#### \### AWS Infrastructure
 
-# ```yaml
+#### ```yaml
 
-# Compute:
+#### Compute:
 
-# &nbsp; - EKS (Kubernetes) for microservices
+#### &nbsp; - EKS (Kubernetes) for microservices
 
-# &nbsp; - Fargate for serverless containers
+#### &nbsp; - Fargate for serverless containers
 
-# &nbsp; - Lambda for event processing
+#### &nbsp; - Lambda for event processing
 
-# &nbsp; - EC2 Auto Scaling Groups
+#### &nbsp; - EC2 Auto Scaling Groups
 
-# 
+#### 
 
-# Networking:
+#### Networking:
 
-# &nbsp; - VPC with public/private subnets
+#### &nbsp; - VPC with public/private subnets
 
-# &nbsp; - Application Load Balancer (ALB)
+#### &nbsp; - Application Load Balancer (ALB)
 
-# &nbsp; - CloudFront CDN
+#### &nbsp; - CloudFront CDN
 
-# &nbsp; - Route 53 DNS
+#### &nbsp; - Route 53 DNS
 
-# 
+#### 
 
-# Storage \& Database:
+#### Storage \& Database:
 
-# &nbsp; - RDS PostgreSQL Multi-AZ
+#### &nbsp; - RDS PostgreSQL Multi-AZ
 
-# &nbsp; - DocumentDB (MongoDB compatible)
+#### &nbsp; - DocumentDB (MongoDB compatible)
 
-# &nbsp; - ElastiCache Redis Cluster
+#### &nbsp; - ElastiCache Redis Cluster
 
-# &nbsp; - S3 buckets with lifecycle policies
+#### &nbsp; - S3 buckets with lifecycle policies
 
-# 
+#### 
 
-# Security:
+#### Security:
 
-# &nbsp; - WAF for application protection
+#### &nbsp; - WAF for application protection
 
-# &nbsp; - Secrets Manager for credentials
+#### &nbsp; - Secrets Manager for credentials
 
-# &nbsp; - IAM roles with least privilege
+#### &nbsp; - IAM roles with least privilege
 
-# &nbsp; - VPC endpoints for private connectivity
+#### &nbsp; - VPC endpoints for private connectivity
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 🔧 Service Configuration Details
+#### \## 🔧 Service Configuration Details
 
-# 
+#### 
 
-# \### 1. \*\*Frontend Service (Next.js 14)\*\*
+#### \### 1. \*\*Frontend Service (Next.js 14)\*\*
 
-# ```yaml
+#### ```yaml
 
-# Architecture:
+#### Architecture:
 
-# &nbsp; - App Router with Server Components
+#### &nbsp; - App Router with Server Components
 
-# &nbsp; - Static Site Generation (SSG) for job listings
+#### &nbsp; - Static Site Generation (SSG) for job listings
 
-# &nbsp; - Incremental Static Regeneration (ISR)
+#### &nbsp; - Incremental Static Regeneration (ISR)
 
-# &nbsp; - API routes for BFF (Backend for Frontend)
+#### &nbsp; - API routes for BFF (Backend for Frontend)
 
-# 
+#### 
 
-# Features:
+#### Features:
 
-# &nbsp; - Real-time job alerts with WebSocket
+#### &nbsp; - Real-time job alerts with WebSocket
 
-# &nbsp; - Advanced filtering \& search with Elasticsearch
+#### &nbsp; - Advanced filtering \& search with Elasticsearch
 
-# &nbsp; - Interactive dashboards with Recharts
+#### &nbsp; - Interactive dashboards with Recharts
 
-# &nbsp; - Responsive design with mobile-first approach
+#### &nbsp; - Responsive design with mobile-first approach
 
-# &nbsp; - SEO optimization with structured data
+#### &nbsp; - SEO optimization with structured data
 
-# 
+#### 
 
-# Performance:
+#### Performance:
 
-# &nbsp; - Image optimization with Next.js Image
+#### &nbsp; - Image optimization with Next.js Image
 
-# &nbsp; - Code splitting and lazy loading
+#### &nbsp; - Code splitting and lazy loading
 
-# &nbsp; - Service Worker for offline support
+#### &nbsp; - Service Worker for offline support
 
-# &nbsp; - Bundle analysis and optimization
+#### &nbsp; - Bundle analysis and optimization
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### 2. \*\*Auth Service\*\*
+#### \### 2. \*\*Auth Service\*\*
 
-# ```yaml
+#### ```yaml
 
-# Responsibilities:
+#### Responsibilities:
 
-# &nbsp; - User registration \& authentication
+#### &nbsp; - User registration \& authentication
 
-# &nbsp; - JWT token management with refresh tokens
+#### &nbsp; - JWT token management with refresh tokens
 
-# &nbsp; - OAuth integration (Google, LinkedIn, GitHub)
+#### &nbsp; - OAuth integration (Google, LinkedIn, GitHub)
 
-# &nbsp; - Role-based access control (RBAC)
+#### &nbsp; - Role-based access control (RBAC)
 
-# &nbsp; - Password reset \& email verification
+#### &nbsp; - Password reset \& email verification
 
-# 
+#### 
 
-# Database Schema:
+#### Database Schema:
 
-# &nbsp; - Users, UserProfiles, Roles, Permissions
+#### &nbsp; - Users, UserProfiles, Roles, Permissions
 
-# &nbsp; - OAuth providers \& social logins
+#### &nbsp; - OAuth providers \& social logins
 
-# &nbsp; - Audit logs for security tracking
+#### &nbsp; - Audit logs for security tracking
 
-# &nbsp; - Session management with Redis
+#### &nbsp; - Session management with Redis
 
-# 
+#### 
 
-# Security Features:
+#### Security Features:
 
-# &nbsp; - bcrypt password hashing with salt
+#### &nbsp; - bcrypt password hashing with salt
 
-# &nbsp; - Rate limiting for login attempts
+#### &nbsp; - Rate limiting for login attempts
 
-# &nbsp; - CSRF protection
+#### &nbsp; - CSRF protection
 
-# &nbsp; - Account lockout after failed attempts
+#### &nbsp; - Account lockout after failed attempts
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### 3. \*\*Crawl Service (Node.js + Puppeteer)\*\*
+#### \### 3. \*\*Crawl Service (Node.js + Puppeteer)\*\*
 
-# ```yaml
+#### ```yaml
 
-# Architecture:
+#### Architecture:
 
-# &nbsp; - Puppeteer cluster for parallel processing
+#### &nbsp; - Puppeteer cluster for parallel processing
 
-# &nbsp; - Cheerio for lightweight HTML parsing
+#### &nbsp; - Cheerio for lightweight HTML parsing
 
-# &nbsp; - Queue-based job processing with Bull
+#### &nbsp; - Queue-based job processing with Bull
 
-# &nbsp; - Proxy rotation for anti-detection
+#### &nbsp; - Proxy rotation for anti-detection
 
-# 
+#### 
 
-# Crawling Strategy:
+#### Crawling Strategy:
 
-# &nbsp; - Multi-source adapters (Indeed, LinkedIn, etc.)
+#### &nbsp; - Multi-source adapters (Indeed, LinkedIn, etc.)
 
-# &nbsp; - Intelligent rate limiting per domain
+#### &nbsp; - Intelligent rate limiting per domain
 
-# &nbsp; - Browser fingerprint randomization
+#### &nbsp; - Browser fingerprint randomization
 
-# &nbsp; - Retry mechanisms with exponential backoff
+#### &nbsp; - Retry mechanisms with exponential backoff
 
-# 
+#### 
 
-# Data Pipeline:
+#### Data Pipeline:
 
-# &nbsp; - Real-time data validation with Zod
+#### &nbsp; - Real-time data validation with Zod
 
-# &nbsp; - Duplicate detection using content hashing
+#### &nbsp; - Duplicate detection using content hashing
 
-# &nbsp; - Skill extraction with NLP algorithms
+#### &nbsp; - Skill extraction with NLP algorithms
 
-# &nbsp; - Event publishing to Kafka topics
+#### &nbsp; - Event publishing to Kafka topics
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### 4. \*\*Analytics Service\*\*
+#### \### 4. \*\*Analytics Service\*\*
 
-# ```yaml
+#### ```yaml
 
-# Data Processing:
+#### Data Processing:
 
-# &nbsp; - Real-time stream processing with Kafka
+#### &nbsp; - Real-time stream processing with Kafka
 
-# &nbsp; - Batch processing for historical analysis
+#### &nbsp; - Batch processing for historical analysis
 
-# &nbsp; - Machine learning models for predictions
+#### &nbsp; - Machine learning models for predictions
 
-# &nbsp; - Time-series analysis for trends
+#### &nbsp; - Time-series analysis for trends
 
-# 
+#### 
 
-# ML/AI Features:
+#### ML/AI Features:
 
-# &nbsp; - Job recommendation engine
+#### &nbsp; - Job recommendation engine
 
-# &nbsp; - Salary prediction models
+#### &nbsp; - Salary prediction models
 
-# &nbsp; - Skill demand forecasting
+#### &nbsp; - Skill demand forecasting
 
-# &nbsp; - Market trend analysis
+#### &nbsp; - Market trend analysis
 
-# &nbsp; - Career path suggestions
+#### &nbsp; - Career path suggestions
 
-# 
+#### 
 
-# Storage:
+#### Storage:
 
-# &nbsp; - ClickHouse for analytical queries
+#### &nbsp; - ClickHouse for analytical queries
 
-# &nbsp; - Feature store for ML pipelines
+#### &nbsp; - Feature store for ML pipelines
 
-# &nbsp; - Model versioning with MLflow
+#### &nbsp; - Model versioning with MLflow
 
-# &nbsp; - A/B testing framework
+#### &nbsp; - A/B testing framework
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### 5. \*\*Notification Service\*\*
+#### \### 5. \*\*Notification Service\*\*
 
-# ```yaml
+#### ```yaml
 
-# Channels:
+#### Channels:
 
-# &nbsp; - Email campaigns (SendGrid/SES)
+#### &nbsp; - Email campaigns (SendGrid/SES)
 
-# &nbsp; - Push notifications (FCM)
+#### &nbsp; - Push notifications (FCM)
 
-# &nbsp; - In-app notifications
+#### &nbsp; - In-app notifications
 
-# &nbsp; - Slack/Discord webhooks
+#### &nbsp; - Slack/Discord webhooks
 
-# 
+#### 
 
-# Features:
+#### Features:
 
-# &nbsp; - Template management system
+#### &nbsp; - Template management system
 
-# &nbsp; - Personalization engine
+#### &nbsp; - Personalization engine
 
-# &nbsp; - Delivery tracking \& analytics
+#### &nbsp; - Delivery tracking \& analytics
 
-# &nbsp; - Unsubscribe management
+#### &nbsp; - Unsubscribe management
 
-# &nbsp; - A/B testing for content
+#### &nbsp; - A/B testing for content
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 📊 Database Schema Design
+#### \## 📊 Database Schema Design
 
-# 
+#### 
 
-# \### Core Entities
+#### \### Core Entities
 
-# ```yaml
+#### ```yaml
 
-# Users \& Authentication:
+#### Users \& Authentication:
 
-# &nbsp; - Users (profiles, preferences, auth data)
+#### &nbsp; - Users (profiles, preferences, auth data)
 
-# &nbsp; - UserSessions (JWT tokens, device tracking)
+#### &nbsp; - UserSessions (JWT tokens, device tracking)
 
-# &nbsp; - OAuthProviders (social login integration)
+#### &nbsp; - OAuthProviders (social login integration)
 
-# 
+#### 
 
-# Job Data:
+#### Job Data:
 
-# &nbsp; - Jobs (listings, descriptions, metadata)
+#### &nbsp; - Jobs (listings, descriptions, metadata)
 
-# &nbsp; - Companies (profiles, logos, ratings)
+#### &nbsp; - Companies (profiles, logos, ratings)
 
-# &nbsp; - JobSkills (skill requirements, levels)
+#### &nbsp; - JobSkills (skill requirements, levels)
 
-# &nbsp; - JobApplications (user applications, status)
+#### &nbsp; - JobApplications (user applications, status)
 
-# 
+#### 
 
-# Analytics:
+#### Analytics:
 
-# &nbsp; - JobViews (tracking, analytics)
+#### &nbsp; - JobViews (tracking, analytics)
 
-# &nbsp; - SearchQueries (user search patterns)
+#### &nbsp; - SearchQueries (user search patterns)
 
-# &nbsp; - TrendAnalysis (market insights)
+#### &nbsp; - TrendAnalysis (market insights)
 
-# &nbsp; - UserBehavior (interaction patterns)
+#### &nbsp; - UserBehavior (interaction patterns)
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Prisma Configuration Strategy
+#### \### Prisma Configuration Strategy
 
-# ```yaml
+#### ```yaml
 
-# Schema Management:
+#### Schema Management:
 
-# &nbsp; - Environment-specific databases
+#### &nbsp; - Environment-specific databases
 
-# &nbsp; - Migration versioning \& rollback
+#### &nbsp; - Migration versioning \& rollback
 
-# &nbsp; - Seed data for development
+#### &nbsp; - Seed data for development
 
-# &nbsp; - Database connection pooling
+#### &nbsp; - Database connection pooling
 
-# 
+#### 
 
-# Performance Optimization:
+#### Performance Optimization:
 
-# &nbsp; - Index strategies for queries
+#### &nbsp; - Index strategies for queries
 
-# &nbsp; - Query optimization with select
+#### &nbsp; - Query optimization with select
 
-# &nbsp; - Relation loading strategies
+#### &nbsp; - Relation loading strategies
 
-# &nbsp; - Caching with Redis integration
+#### &nbsp; - Caching with Redis integration
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 🚀 AWS Deployment Architecture
+#### \## 🚀 AWS Deployment Architecture
 
-# 
+#### 
 
-# \### Infrastructure Components
+#### \### Infrastructure Components
 
-# ```yaml
+#### ```yaml
 
-# Kubernetes Cluster (EKS):
+#### Kubernetes Cluster (EKS):
 
-# &nbsp; - Multi-AZ deployment for high availability
+#### &nbsp; - Multi-AZ deployment for high availability
 
-# &nbsp; - Node groups with spot instances for cost optimization
+#### &nbsp; - Node groups with spot instances for cost optimization
 
-# &nbsp; - Horizontal Pod Autoscaler (HPA) for scaling
+#### &nbsp; - Horizontal Pod Autoscaler (HPA) for scaling
 
-# &nbsp; - Cluster Autoscaler for node management
+#### &nbsp; - Cluster Autoscaler for node management
 
-# 
+#### 
 
-# Database Setup:
+#### Database Setup:
 
-# &nbsp; - RDS PostgreSQL with Multi-AZ deployment
+#### &nbsp; - RDS PostgreSQL with Multi-AZ deployment
 
-# &nbsp; - Read replicas for query optimization
+#### &nbsp; - Read replicas for query optimization
 
-# &nbsp; - Automated backups with point-in-time recovery
+#### &nbsp; - Automated backups with point-in-time recovery
 
-# &nbsp; - Connection pooling with RDS Proxy
+#### &nbsp; - Connection pooling with RDS Proxy
 
-# 
+#### 
 
-# Caching \& Queues:
+#### Caching \& Queues:
 
-# &nbsp; - ElastiCache Redis Cluster Mode
+#### &nbsp; - ElastiCache Redis Cluster Mode
 
-# &nbsp; - SQS/SNS for async messaging
+#### &nbsp; - SQS/SNS for async messaging
 
-# &nbsp; - Kafka on MSK for event streaming
+#### &nbsp; - Kafka on MSK for event streaming
 
-# &nbsp; - S3 for file storage with CloudFront CDN
+#### &nbsp; - S3 for file storage with CloudFront CDN
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Security \& Monitoring
+#### \### Security \& Monitoring
 
-# ```yaml
+#### ```yaml
 
-# Security Layers:
+#### Security Layers:
 
-# &nbsp; - WAF rules for application protection
+#### &nbsp; - WAF rules for application protection
 
-# &nbsp; - VPC with private subnets for databases
+#### &nbsp; - VPC with private subnets for databases
 
-# &nbsp; - IAM roles with minimal permissions
+#### &nbsp; - IAM roles with minimal permissions
 
-# &nbsp; - Secrets Manager for credential management
+#### &nbsp; - Secrets Manager for credential management
 
-# 
+#### 
 
-# Observability:
+#### Observability:
 
-# &nbsp; - CloudWatch for logs and metrics
+#### &nbsp; - CloudWatch for logs and metrics
 
-# &nbsp; - X-Ray for distributed tracing
+#### &nbsp; - X-Ray for distributed tracing
 
-# &nbsp; - Prometheus + Grafana for custom metrics
+#### &nbsp; - Prometheus + Grafana for custom metrics
 
-# &nbsp; - Alerting with SNS notifications
+#### &nbsp; - Alerting with SNS notifications
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 🔄 CI/CD Pipeline Configuration
+#### \## 🔄 CI/CD Pipeline Configuration
 
-# 
+#### 
 
-# \### GitHub Actions Workflows
+#### \### GitHub Actions Workflows
 
-# ```yaml
+#### ```yaml
 
-# Frontend Pipeline:
+#### Frontend Pipeline:
 
-# &nbsp; - Code quality checks (ESLint, Prettier)
+#### &nbsp; - Code quality checks (ESLint, Prettier)
 
-# &nbsp; - Type checking with TypeScript
+#### &nbsp; - Type checking with TypeScript
 
-# &nbsp; - Unit tests with Jest
+#### &nbsp; - Unit tests with Jest
 
-# &nbsp; - E2E tests with Playwright
+#### &nbsp; - E2E tests with Playwright
 
-# &nbsp; - Build optimization analysis
+#### &nbsp; - Build optimization analysis
 
-# &nbsp; - Deployment to Vercel/AWS
+#### &nbsp; - Deployment to Vercel/AWS
 
-# 
+#### 
 
-# Backend Pipeline:
+#### Backend Pipeline:
 
-# &nbsp; - Code quality \& security scans
+#### &nbsp; - Code quality \& security scans
 
-# &nbsp; - Unit \& integration tests
+#### &nbsp; - Unit \& integration tests
 
-# &nbsp; - Database migration validation
+#### &nbsp; - Database migration validation
 
-# &nbsp; - Docker image building \& scanning
+#### &nbsp; - Docker image building \& scanning
 
-# &nbsp; - Kubernetes deployment with Helm
+#### &nbsp; - Kubernetes deployment with Helm
 
-# &nbsp; - Health check verification
+#### &nbsp; - Health check verification
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Environment Strategy
+#### \### Environment Strategy
 
-# ```yaml
+#### ```yaml
 
-# Development:
+#### Development:
 
-# &nbsp; - Local Docker Compose setup
+#### &nbsp; - Local Docker Compose setup
 
-# &nbsp; - Hot reloading for rapid development
+#### &nbsp; - Hot reloading for rapid development
 
-# &nbsp; - Test databases with seed data
+#### &nbsp; - Test databases with seed data
 
-# &nbsp; - Mock external services
+#### &nbsp; - Mock external services
 
-# 
+#### 
 
-# Staging:
+#### Staging:
 
-# &nbsp; - Production-like environment
+#### &nbsp; - Production-like environment
 
-# &nbsp; - Automated testing \& validation
+#### &nbsp; - Automated testing \& validation
 
-# &nbsp; - Performance benchmarking
+#### &nbsp; - Performance benchmarking
 
-# &nbsp; - User acceptance testing
+#### &nbsp; - User acceptance testing
 
-# 
+#### 
 
-# Production:
+#### Production:
 
-# &nbsp; - Blue-green deployment strategy
+#### &nbsp; - Blue-green deployment strategy
 
-# &nbsp; - Canary releases for gradual rollout
+#### &nbsp; - Canary releases for gradual rollout
 
-# &nbsp; - Automated rollback on failures
+#### &nbsp; - Automated rollback on failures
 
-# &nbsp; - Zero-downtime deployments
+#### &nbsp; - Zero-downtime deployments
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 📈 Scalability \& Performance
+#### \## 📈 Scalability \& Performance
 
-# 
+#### 
 
-# \### Horizontal Scaling Strategy
+#### \### Horizontal Scaling Strategy
 
-# ```yaml
+#### ```yaml
 
-# Microservice Scaling:
+#### Microservice Scaling:
 
-# &nbsp; - Independent service scaling based on metrics
+#### &nbsp; - Independent service scaling based on metrics
 
-# &nbsp; - Load balancing with health checks
+#### &nbsp; - Load balancing with health checks
 
-# &nbsp; - Circuit breaker patterns for resilience
+#### &nbsp; - Circuit breaker patterns for resilience
 
-# &nbsp; - Graceful degradation under load
+#### &nbsp; - Graceful degradation under load
 
-# 
+#### 
 
-# Database Scaling:
+#### Database Scaling:
 
-# &nbsp; - Read replicas for query distribution
+#### &nbsp; - Read replicas for query distribution
 
-# &nbsp; - Database sharding for large datasets
+#### &nbsp; - Database sharding for large datasets
 
-# &nbsp; - Connection pooling optimization
+#### &nbsp; - Connection pooling optimization
 
-# &nbsp; - Query caching strategies
+#### &nbsp; - Query caching strategies
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \### Performance Optimizations
+#### \### Performance Optimizations
 
-# ```yaml
+#### ```yaml
 
-# Frontend Performance:
+#### Frontend Performance:
 
-# &nbsp; - Code splitting \& lazy loading
+#### &nbsp; - Code splitting \& lazy loading
 
-# &nbsp; - Image optimization \& WebP format
+#### &nbsp; - Image optimization \& WebP format
 
-# &nbsp; - Service worker for caching
+#### &nbsp; - Service worker for caching
 
-# &nbsp; - CDN for global content delivery
+#### &nbsp; - CDN for global content delivery
 
-# 
+#### 
 
-# Backend Performance:
+#### Backend Performance:
 
-# &nbsp; - Redis caching for frequent queries
+#### &nbsp; - Redis caching for frequent queries
 
-# &nbsp; - Database query optimization
+#### &nbsp; - Database query optimization
 
-# &nbsp; - Async processing for heavy tasks
+#### &nbsp; - Async processing for heavy tasks
 
-# &nbsp; - API response compression
+#### &nbsp; - API response compression
 
-# ```
+#### ```
 
-# 
+#### 
 
-# \## 🔍 Monitoring \& Observability
+#### \## 🔍 Monitoring \& Observability
 
-# 
+#### 
 
-# \### Metrics \& Alerting
+#### \### Metrics \& Alerting
 
-# ```yaml
+#### ```yaml
 
-# Business Metrics:
+#### Business Metrics:
 
-# &nbsp; - Job posting rates \& trends
+#### &nbsp; - Job posting rates \& trends
 
-# &nbsp; - User engagement analytics
+#### &nbsp; - User engagement analytics
 
-# &nbsp; - Crawling success rates
+#### &nbsp; - Crawling success rates
 
-# &nbsp; - API response times
+#### &nbsp; - API response times
 
-# 
+#### 
 
-# Technical Metrics:
+#### Technical Metrics:
 
-# &nbsp; - Service health \& uptime
+#### &nbsp; - Service health \& uptime
 
-# &nbsp; - Database performance
+#### &nbsp; - Database performance
 
-# &nbsp; - Queue processing rates
+#### &nbsp; - Queue processing rates
 
-# &nbsp; - Error rates \& exceptions
+#### &nbsp; - Error rates \& exceptions
 
-# 
+#### 
 
-# Alerting Rules:
+#### Alerting Rules:
 
-# &nbsp; - Service downtime detection
+#### &nbsp; - Service downtime detection
 
-# &nbsp; - Performance degradation
+#### &nbsp; - Performance degradation
 
-# &nbsp; - Security incident alerts
+#### &nbsp; - Security incident alerts
 
-# &nbsp; - Resource utilization thresholds
+#### &nbsp; - Resource utilization thresholds
 
-# ```
+#### ```
 
-# 
+#### 
 
-# ---
+#### ---
 
-# 
+#### 
 
-# \*This architecture is designed to handle millions of job postings with enterprise-grade scalability, security, and maintainability. Each component can be independently scaled, deployed, and maintained while providing a seamless user experience.\*
+#### \*This architecture is designed to handle millions of job postings with enterprise-grade scalability, security, and maintainability. Each component can be independently scaled, deployed, and maintained while providing a seamless user experience.\*
 
