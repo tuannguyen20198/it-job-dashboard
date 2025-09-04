@@ -1,0 +1,77 @@
+version: "3.9"
+
+services:
+  # Database (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: itjob_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: itjobdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  # Auth Service
+  auth-service:
+    build: ./backend/apps/auth-service
+    container_name: auth-service
+    command: pnpm run start:prod
+    ports:
+      - "3001:3000"
+    environment:
+      DATABASE_URL: postgres://admin:admin123@db:5432/itjobdb
+    depends_on:
+      - db
+
+  # Crawl Service
+  crawl-service:
+    build: ./backend/apps/crawl-service
+    container_name: crawl-service
+    command: pnpm run start:prod
+    ports:
+      - "3002:3000"
+    environment:
+      DATABASE_URL: postgres://admin:admin123@db:5432/itjobdb
+    depends_on:
+      - db
+
+  # Analytics Service
+  analytics-service:
+    build: ./backend/apps/analytics-service
+    container_name: analytics-service
+    command: pnpm run start:prod
+    ports:
+      - "3003:3000"
+    environment:
+      DATABASE_URL: postgres://admin:admin123@db:5432/itjobdb
+    depends_on:
+      - db
+
+  # Cron Service (scheduler)
+  cron-service:
+    build: ./backend/apps/cron-service
+    container_name: cron-service
+    command: pnpm run start:cron
+    environment:
+      DATABASE_URL: postgres://admin:admin123@db:5432/itjobdb
+    depends_on:
+      - db
+      - crawl-service
+
+  # Frontend Next.js
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    command: pnpm run start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+      - crawl-service
+      - analytics-service
+
+volumes:
+  db-data:
