@@ -5,13 +5,21 @@ Enterprise-grade job analytics platform with modern microservice architecture: N
 🏗️ Architecture Overview
 flowchart TD
 FE[Frontend: Next.js 14] --> API[API Gateway: Kong/Express]
+
 API --> LB[Load Balancer: AWS ALB]
+
 API --> Auth[Auth Service: JWT + OAuth]
+
 API --> Crawl[Crawl Service: Puppeteer + Cheerio]
+
 API --> Analytics[Analytics Service: ML/AI]
+
 Crawl --> MQ[Message Queue: Kafka + Redis]
+
 Analytics --> MQ
+
 Auth --> DB[(PostgreSQL + MongoDB + Redis)]
+
 MQ --> DB
 
 Frontend: SSR + ISR, WebSocket alerts, Recharts dashboards, SEO optimized.
@@ -27,10 +35,15 @@ Notifications: Email, Push, In-app, Webhooks.
 🎯 Tech Stack
 Layer Stack/Tools
 Frontend Next.js 14, TypeScript, Tailwind CSS, Shadcn/ui, Zustand, TanStack Query, NextAuth.js, Jest + Playwright
+
 Backend Node.js 18+, Express.js, Prisma, Passport.js, Bull Queue, Kafka, Redis, AWS S3 + CloudFront
+
 DB & Cache PostgreSQL 15+, MongoDB, Redis Cluster, ClickHouse, S3 Data Lake
+
 Cloud AWS: EKS, Fargate, Lambda, ALB, CloudFront, Route53, Secrets Manager
+
 CI/CD GitHub Actions, Docker, Helm, Vercel/AWS Deployment
+
 🔧 Key Features
 
 Frontend: Responsive dashboards, advanced search/filter, image optimization, offline support.
